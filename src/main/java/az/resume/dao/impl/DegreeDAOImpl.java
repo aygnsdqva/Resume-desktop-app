@@ -1,10 +1,16 @@
 package az.resume.dao.impl;
 
 import az.resume.dao.DegreeDAO;
-import az.resume.dao.model.Callable;
 
-public class DegreeDAOImpl implements DegreeDAO,
-                                      Callable {
+import java.sql.Connection;
+
+public class DegreeDAOImpl extends DegreeDAO {
+
+    private Connection connection;
+
+    public DegreeDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
 
     @Override
     public void getAll() {

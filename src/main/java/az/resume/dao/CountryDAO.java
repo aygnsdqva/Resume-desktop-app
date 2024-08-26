@@ -1,4 +1,6 @@
 package az.resume.dao;
 
-public interface CountryDAO {
+import az.resume.dao.model.Callable;
+
+public abstract class CountryDAO implements Callable {
 }

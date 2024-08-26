@@ -1,16 +1,16 @@
 package az.resume.dao.impl;
 
 import az.resume.dao.CertificateDAO;
-import az.resume.dao.model.CallableById;
-import az.resume.dao.model.Deletable;
-import az.resume.dao.model.Insertable;
-import az.resume.dao.model.Updatable;
 
-public class CertificateDAOImpl implements CertificateDAO,
-                                           Insertable,
-                                           Updatable,
-                                           Deletable,
-                                           CallableById {
+import java.sql.Connection;
+
+public class CertificateDAOImpl extends CertificateDAO {
+
+    private Connection connection;
+
+    public CertificateDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
 
     @Override
     public void getById(int id) {

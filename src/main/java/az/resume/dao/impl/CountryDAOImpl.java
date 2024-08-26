@@ -1,10 +1,17 @@
 package az.resume.dao.impl;
 
 import az.resume.dao.CountryDAO;
-import az.resume.dao.model.Callable;
 
-public class CountryDAOImpl implements CountryDAO,
-                                       Callable {
+import java.sql.Connection;
+
+public class CountryDAOImpl extends CountryDAO {
+
+    private Connection connection;
+
+    public CountryDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public void getAll() {
 

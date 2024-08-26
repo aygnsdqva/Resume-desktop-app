@@ -1,16 +1,17 @@
 package az.resume.dao.impl;
 
 import az.resume.dao.HobbyDAO;
-import az.resume.dao.model.CallableById;
-import az.resume.dao.model.Deletable;
-import az.resume.dao.model.Insertable;
-import az.resume.dao.model.Updatable;
 
-public class HobbyDAOImpl implements HobbyDAO,
-                                     Insertable,
-                                     Updatable,
-                                     Deletable,
-                                     CallableById {
+import java.sql.Connection;
+
+public class HobbyDAOImpl extends HobbyDAO {
+
+    private Connection connection;
+
+    public HobbyDAOImpl(Connection connection) {
+        this.connection = connection;
+    }
+
     @Override
     public void getById(int id) {
 

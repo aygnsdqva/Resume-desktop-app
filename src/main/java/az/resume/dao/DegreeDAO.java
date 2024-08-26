@@ -1,4 +1,6 @@
 package az.resume.dao;
 
-public interface DegreeDAO {
+import az.resume.dao.model.Callable;
+
+public abstract class DegreeDAO implements Callable {
 }

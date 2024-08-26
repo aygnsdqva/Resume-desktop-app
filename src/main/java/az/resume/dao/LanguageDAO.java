@@ -1,4 +1,6 @@
 package az.resume.dao;
 
-public interface LanguageDAO {
+import az.resume.dao.model.Callable;
+
+public abstract class LanguageDAO implements Callable {
 }

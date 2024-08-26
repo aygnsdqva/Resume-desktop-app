@@ -1,15 +1,20 @@
 package az.resume.dao.impl;
 
-import az.resume.dao.ExperienceDAO;
+import az.resume.dao.UserDAO;
 
 import java.sql.Connection;
+import java.sql.SQLException;
 
-public class ExperienceDAOImpl extends ExperienceDAO {
+public class UserDAOImpl extends UserDAO {
 
     private Connection connection;
 
-    public ExperienceDAOImpl(Connection connection) {
+    public UserDAOImpl(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public void getAll() throws SQLException {
     }
 
     @Override

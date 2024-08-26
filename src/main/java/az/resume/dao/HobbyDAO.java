@@ -1,4 +1,9 @@
 package az.resume.dao;
 
-public interface HobbyDAO {
+import az.resume.dao.model.CallableById;
+import az.resume.dao.model.Deletable;
+import az.resume.dao.model.Insertable;
+import az.resume.dao.model.Updatable;
+
+public abstract class HobbyDAO implements Insertable, Updatable, Deletable, CallableById {
 }

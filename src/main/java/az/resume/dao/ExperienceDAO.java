@@ -1,4 +1,9 @@
 package az.resume.dao;
 
-public interface ExperienceDAO {
+import az.resume.dao.model.CallableById;
+import az.resume.dao.model.Deletable;
+import az.resume.dao.model.Insertable;
+import az.resume.dao.model.Updatable;
+
+public abstract class ExperienceDAO implements Insertable, Updatable, Deletable, CallableById {
 }

@@ -1,4 +1,6 @@
 package az.resume.dao;
 
-public interface SkillDAO {
+import az.resume.dao.model.Callable;
+
+public abstract class SkillDAO implements Callable {
 }
