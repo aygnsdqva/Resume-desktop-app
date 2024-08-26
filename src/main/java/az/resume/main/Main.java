@@ -12,7 +12,7 @@ public class Main {
         String username = "root";
         String password = "root123";
         DatabaseConnection databaseConnection = InitialClass.initialMySqlDatabase(url, username, password);
-        InitialClass.initialUserDAO(databaseConnection.getConnection()).getAll();
+        InitialClass.initialUniversityDAO(databaseConnection.getConnection()).getAll();
         databaseConnection.closeConnection();
     }
 
