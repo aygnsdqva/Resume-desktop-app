@@ -1,8 +1,12 @@
 package az.resume.dao.impl;
 
+import az.resume.bean.Experience;
+import az.resume.bean.User;
 import az.resume.dao.ExperienceDAO;
 
 import java.sql.Connection;
+import java.sql.PreparedStatement;
+import java.sql.SQLException;
 
 public class ExperienceDAOImpl extends ExperienceDAO {
 
@@ -13,8 +17,8 @@ public class ExperienceDAOImpl extends ExperienceDAO {
     }
 
     @Override
-    public void getById(int id) {
-
+    public Object getById(int id) {
+        return null;
     }
 
     @Override
@@ -23,8 +27,20 @@ public class ExperienceDAOImpl extends ExperienceDAO {
     }
 
     @Override
-    public void add(Object object) {
+    public void add(Object object) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into employment_history(header,begin_date,end_date,description,user_id) " +
+                "values (?, ?, ?, ?, ?)");
+        if(object instanceof Experience){
+            Experience experience = (Experience) object;
+            preparedStatement.setString(1,experience.getHeader());
+            preparedStatement.setDate(2,experience.getBeginDate());
+            preparedStatement.setDate(3,experience.getEndDate());
+            preparedStatement.setString(4,experience.getDescription());
+            preparedStatement.setInt(5,experience.getUser().getId());
+            preparedStatement.execute();
+            System.out.println("Well done");
 
+        }
     }
 
     @Override

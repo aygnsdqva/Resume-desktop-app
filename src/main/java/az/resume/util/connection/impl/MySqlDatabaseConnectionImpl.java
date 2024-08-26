@@ -10,6 +10,9 @@ public class MySqlDatabaseConnectionImpl implements DatabaseConnection {
 
     private  Connection connection;
 
+    public MySqlDatabaseConnectionImpl() {
+    }
+
     public MySqlDatabaseConnectionImpl(String url, String username, String password) throws SQLException {
         this.connection = DriverManager.getConnection(url,username,password);
     }

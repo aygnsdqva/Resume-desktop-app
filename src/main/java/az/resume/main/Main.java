@@ -1,10 +1,10 @@
 package az.resume.main;
 
-
 import az.resume.contex.InitialClass;
 import az.resume.util.connection.DatabaseConnection;
+import az.resume.util.connection.impl.MySqlDatabaseConnectionImpl;
 
-import java.sql.*;
+
 
 public class Main {
     public static void main(String[] args) throws Exception {
@@ -12,8 +12,8 @@ public class Main {
         String username = "root";
         String password = "root123";
         DatabaseConnection databaseConnection = InitialClass.initialMySqlDatabase(url, username, password);
-        InitialClass.initialUniversityDAO(databaseConnection.getConnection()).getAll();
-        databaseConnection.closeConnection();
+        InitialClass.initialExperienceDAO(databaseConnection.getConnection());
+        new MySqlDatabaseConnectionImpl().closeConnection();
     }
 
 

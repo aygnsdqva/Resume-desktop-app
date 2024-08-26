@@ -10,6 +10,8 @@ import java.sql.SQLException;
 
 public class InitialClass {
 
+
+
     public static DatabaseConnection initialMySqlDatabase(String url, String username, String password) throws SQLException {
         return new MySqlDatabaseConnectionImpl(url, username, password);
     }

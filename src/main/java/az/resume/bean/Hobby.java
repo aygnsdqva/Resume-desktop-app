@@ -5,8 +5,6 @@ public class Hobby {
     private String name;
     private User user;
 
-    public Hobby() {
-    }
 
     public Hobby(int id, String name, User user) {
         this.id = id;

@@ -1,6 +1,6 @@
 package az.resume.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Certificate {
     private int id;
@@ -9,9 +9,6 @@ public class Certificate {
     private Date expirationDate;
     private String description;
     private User user;
-
-    public Certificate() {
-    }
 
     public Certificate(int id, String name, String organization, Date expirationDate, String description, User user) {
         this.id = id;

@@ -48,8 +48,8 @@ public class UserDAOImpl extends UserDAO {
     }
 
     @Override
-    public void getById(int id) {
-
+    public Object getById(int id) {
+        return null;
     }
 
     @Override

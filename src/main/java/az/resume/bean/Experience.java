@@ -1,6 +1,6 @@
 package az.resume.bean;
 
-import java.util.Date;
+import java.sql.Date;
 
 public class Experience {
     private int id;
@@ -10,11 +10,7 @@ public class Experience {
     private String description;
     private User user;
 
-    public Experience() {
-    }
-
-    public Experience(int id, String header, Date beginDate, Date endDate, String description, User user) {
-        this.id = id;
+    public Experience(String header, Date beginDate, Date endDate, String description, User user) {
         this.header = header;
         this.beginDate = beginDate;
         this.endDate = endDate;
