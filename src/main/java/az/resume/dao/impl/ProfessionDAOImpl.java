@@ -1,29 +1,33 @@
 package az.resume.dao.impl;
 
+import az.resume.bean.Profession;
 import az.resume.dao.ProfessionDAO;
-import az.resume.util.color.ColorUtil;
 
 import java.sql.Connection;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
+import java.util.ArrayList;
+import java.util.List;
 
 public class ProfessionDAOImpl extends ProfessionDAO {
-    private Connection connection;
+    private final Connection connection;
 
     public ProfessionDAOImpl(Connection connection) {
         this.connection = connection;
     }
 
     @Override
-    public void getAll() throws SQLException {
+    public List<Profession> getAll() throws SQLException {
+        List<Profession> professions = new ArrayList<>();
         Statement statement = connection.createStatement();
         statement.execute("select * from profession");
         ResultSet resultSet = statement.getResultSet();
         while (resultSet.next()){
             int id = resultSet.getInt("id");
             String name = resultSet.getString("name");
-            System.out.println("ID: " + ColorUtil.greenColorBold(id) + ", profession: " + ColorUtil.redColor(name));
+            professions.add(new Profession(id,name));
         }
+        return  professions;
     }
 }

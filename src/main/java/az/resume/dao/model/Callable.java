@@ -1,7 +1,8 @@
 package az.resume.dao.model;
 
 import java.sql.SQLException;
+import java.util.List;
 
 public interface Callable {
-    void getAll() throws SQLException;
+    List<Object> getAll() throws SQLException;
 }

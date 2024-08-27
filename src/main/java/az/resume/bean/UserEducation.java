@@ -1,7 +1,7 @@
 package az.resume.bean;
 
 public class UserEducation {
-    private  int id;
+    private int id;
     private User user;
     private University university;
     private Profession profession;
@@ -57,12 +57,6 @@ public class UserEducation {
 
     @Override
     public String toString() {
-        return "UserEducation{" +
-                "id=" + id +
-                ", user=" + user +
-                ", university=" + university +
-                ", profession=" + profession +
-                ", degree=" + degree +
-                '}';
+        return "UserEducation{" + "id=" + id + ", userId=" + user.getId() + ", university=" + university + ", profession=" + profession + ", degree=" + degree + '}';
     }
 }

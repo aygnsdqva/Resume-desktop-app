@@ -38,10 +38,6 @@ public class Hobby {
 
     @Override
     public String toString() {
-        return "Hobby{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", user=" + user +
-                '}';
+        return "Hobby{" + "id=" + id + ", name='" + name + '\'' + ", userId=" + user.getId() + '}';
     }
 }

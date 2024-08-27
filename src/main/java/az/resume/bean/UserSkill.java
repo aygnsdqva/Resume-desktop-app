@@ -3,13 +3,13 @@ package az.resume.bean;
 public class UserSkill {
     private int id;
     private User user;
-    private Language language;
-    private int power ;
+    private Skill skill;
+    private int power;
 
-    public UserSkill(int id, User user, Language language, int power) {
+    public UserSkill(int id, User user, Skill skill, int power) {
         this.id = id;
         this.user = user;
-        this.language = language;
+        this.skill = skill;
         this.power = power;
     }
 
@@ -29,12 +29,12 @@ public class UserSkill {
         this.user = user;
     }
 
-    public Language getLanguage() {
-        return language;
+    public Skill getSkill() {
+        return skill;
     }
 
-    public void setLanguage(Language language) {
-        this.language = language;
+    public void setSkill(Skill skill) {
+        this.skill = skill;
     }
 
     public int getPower() {
@@ -47,11 +47,6 @@ public class UserSkill {
 
     @Override
     public String toString() {
-        return "UserSkill{" +
-                "id=" + id +
-                ", user=" + user +
-                ", language=" + language +
-                ", power=" + power +
-                '}';
+        return "UserSkill{" + "id=" + id + ", userId=" + user.getId() + ", skill=" + skill + ", power=" + power + '}';
     }
 }

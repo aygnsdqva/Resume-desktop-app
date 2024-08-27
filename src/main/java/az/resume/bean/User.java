@@ -3,13 +3,14 @@ package az.resume.bean;
 import java.util.List;
 
 public class User {
-    private  int id;
+    private int id;
     private String name;
     private String surname;
     private String email;
     private String phone;
     private String about;
     private Country country;
+    private Country nationality;
     private List<Certificate> certificates;
     private List<Experience> experiences;
     private List<Hobby> hobbies;
@@ -21,7 +22,7 @@ public class User {
     public User() {
     }
 
-    public User(int id, String name, String surname, String email, String phone, String about, Country country, List<Certificate> certificates, List<Experience> experiences, List<Hobby> hobbies, List<UserEducation> educations, List<UserLanguage> languages, List<UserSkill> skills) {
+    public User(int id, String name, String surname, String email, String phone, String about, Country country, Country nationality) {
         this.id = id;
         this.name = name;
         this.surname = surname;
@@ -29,6 +30,18 @@ public class User {
         this.phone = phone;
         this.about = about;
         this.country = country;
+        this.nationality = nationality;
+    }
+
+    public User(int id, String name, String surname, String email, String phone, String about, Country country, Country nationality, List<Certificate> certificates, List<Experience> experiences, List<Hobby> hobbies, List<UserEducation> educations, List<UserLanguage> languages, List<UserSkill> skills) {
+        this.id = id;
+        this.name = name;
+        this.surname = surname;
+        this.email = email;
+        this.phone = phone;
+        this.about = about;
+        this.country = country;
+        this.nationality = nationality;
         this.certificates = certificates;
         this.experiences = experiences;
         this.hobbies = hobbies;
@@ -93,6 +106,14 @@ public class User {
         this.country = country;
     }
 
+    public Country getNationality() {
+        return nationality;
+    }
+
+    public void setNationality(Country nationality) {
+        this.nationality = nationality;
+    }
+
     public List<Certificate> getCertificates() {
         return certificates;
     }
@@ -141,22 +162,9 @@ public class User {
         this.skills = skills;
     }
 
+
     @Override
     public String toString() {
-        return "User{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", surname='" + surname + '\'' +
-                ", email='" + email + '\'' +
-                ", phone='" + phone + '\'' +
-                ", about='" + about + '\'' +
-                ", country=" + country +
-                ", certificates=" + certificates +
-                ", experiences=" + experiences +
-                ", hobbies=" + hobbies +
-                ", educations=" + educations +
-                ", languages=" + languages +
-                ", skills=" + skills +
-                '}';
+        return "User{" + "id=" + id + ", name='" + name + '\'' + ", surname='" + surname + '\'' + ", email='" + email + '\'' + ", phone='" + phone + '\'' + ", about='" + about + '\'' + ", country=" + country + ", nationality=" + nationality + ", certificates=" + certificates + ", experiences=" + experiences + ", hobbies=" + hobbies + ", educations=" + educations + ", languages=" + languages + ", skills=" + skills + '}';
     }
 }

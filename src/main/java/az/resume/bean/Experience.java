@@ -10,7 +10,8 @@ public class Experience {
     private String description;
     private User user;
 
-    public Experience(String header, Date beginDate, Date endDate, String description, User user) {
+    public Experience(int id, String header, Date beginDate, Date endDate, String description, User user) {
+        this.id = id;
         this.header = header;
         this.beginDate = beginDate;
         this.endDate = endDate;
@@ -68,17 +69,6 @@ public class Experience {
 
     @Override
     public String toString() {
-        String result = "Experience{" +
-                "id=" + id +
-                ", header='" + header + '\'' +
-                ", beginDate=" + beginDate;
-        if (endDate!=null){
-            result += ", endDate=" + endDate ;
-        }
-        result +=", description='" + description + '\'' +
-                ", user=" + user +
-                '}';
-
-        return result;
+        return "Experience{" + "id=" + id + ", header='" + header + '\'' + ", beginDate=" + beginDate + ", endDate=" + endDate + ", description='" + description + '\'' + ", userId=" + user.getId() + '}';
     }
 }

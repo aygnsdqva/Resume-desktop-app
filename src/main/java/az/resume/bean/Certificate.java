@@ -69,18 +69,13 @@ public class Certificate {
 
     @Override
     public String toString() {
-        String result = "Certificate{" +
+        return "Certificate{" +
                 "id=" + id +
                 ", name='" + name + '\'' +
-                ", organization='" + organization + '\'';
-        if (expirationDate!= null){
-            result  += (", expirationDate=" + expirationDate + '\'');
-        }
-        if(description!=null){
-            result += ", description='" + description + '\'';
-        }
-        result+= ", user=" + user +
+                ", organization='" + organization + '\'' +
+                ", expirationDate=" + expirationDate +
+                ", description='" + description + '\'' +
+                ", userId=" + user.getId() +
                 '}';
-        return result;
     }
 }

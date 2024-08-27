@@ -4,7 +4,7 @@ public class UserLanguage {
     private int id;
     private User user;
     private Language language;
-    private  int power;
+    private int power;
 
     public UserLanguage(int id, User user, Language language, int power) {
         this.id = id;
@@ -47,11 +47,6 @@ public class UserLanguage {
 
     @Override
     public String toString() {
-        return "UserLanguage{" +
-                "id=" + id +
-                ", user=" + user +
-                ", language=" + language +
-                ", power=" + power +
-                '}';
+        return "UserLanguage{" + "id=" + id + ", userId=" + user.getId() + ", language=" + language + ", power=" + power + '}';
     }
 }

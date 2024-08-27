@@ -5,8 +5,6 @@ public class University {
     private String name;
     private Country country;
 
-    public University() {
-    }
 
     public University(int id, String name, Country country) {
         this.id = id;
@@ -40,10 +38,6 @@ public class University {
 
     @Override
     public String toString() {
-        return "University{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                ", country=" + country +
-                '}';
+        return "University{" + "id=" + id + ", name='" + name + '\'' + ", country=" + country + '}';
     }
 }

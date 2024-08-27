@@ -1,6 +1,10 @@
 package az.resume.dao;
 
-import az.resume.dao.model.Callable;
+import az.resume.bean.Profession;
 
-public abstract class ProfessionDAO implements Callable {
+import java.sql.SQLException;
+import java.util.List;
+
+public abstract class ProfessionDAO{
+    public abstract List<Profession> getAll() throws SQLException;
 }

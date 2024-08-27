@@ -2,10 +2,8 @@ package az.resume.bean;
 
 public class Profession {
     private int id;
-    private  String name;
+    private String name;
 
-    public Profession() {
-    }
 
     public Profession(int id, String name) {
         this.id = id;
@@ -30,9 +28,6 @@ public class Profession {
 
     @Override
     public String toString() {
-        return "Profession{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Profession{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }

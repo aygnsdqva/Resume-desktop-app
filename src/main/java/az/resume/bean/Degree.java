@@ -4,9 +4,6 @@ public class Degree {
     private int id;
     private String name;
 
-    public Degree() {
-    }
-
     public Degree(int id, String name) {
         this.id = id;
         this.name = name;
@@ -30,9 +27,6 @@ public class Degree {
 
     @Override
     public String toString() {
-        return "Degree{" +
-                "id=" + id +
-                ", name='" + name + '\'' +
-                '}';
+        return "Degree{" + "id=" + id + ", name='" + name + '\'' + '}';
     }
 }

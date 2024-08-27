@@ -5,8 +5,6 @@ public class Country {
     private String countryName;
     private String nationalityIso;
 
-    public Country() {
-    }
 
     public Country(int id, String countryName, String nationalityIso) {
         this.id = id;
