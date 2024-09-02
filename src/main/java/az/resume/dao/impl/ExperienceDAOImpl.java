@@ -18,28 +18,62 @@ public class ExperienceDAOImpl extends ExperienceDAO {
 
 
     @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public void add(Object object) throws SQLException {
+    public void add(Experience experience) throws SQLException {
         PreparedStatement preparedStatement = connection.prepareStatement("insert into employment_history(header,begin_date,end_date,description,user_id) " + "values (?, ?, ?, ?, ?)");
-        if (object instanceof Experience experience) {
-            preparedStatement.setString(1, experience.getHeader());
-            preparedStatement.setDate(2, experience.getBeginDate());
-            preparedStatement.setDate(3, experience.getEndDate());
-            preparedStatement.setString(4, experience.getDescription());
-            preparedStatement.setInt(5, experience.getUser().getId());
-            preparedStatement.execute();
-            System.out.println("Well done");
-
-        }
+        preparedStatement.setString(1, experience.getHeader());
+        preparedStatement.setDate(2, experience.getBeginDate());
+        preparedStatement.setDate(3, experience.getEndDate());
+        preparedStatement.setString(4, experience.getDescription());
+        preparedStatement.setInt(5, experience.getUser().getId());
+        preparedStatement.execute();
+        System.out.println("Well done");
     }
 
     @Override
-    public void update(int id) {
+    public Experience experienceById(int id) throws SQLException {
+        Experience experience = null;
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from employment_history where id = ?");
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+        ResultSet resultSet = preparedStatement.getResultSet();
+        while (resultSet.next()) {
+            String header = resultSet.getString("header");
+            Date beginDate = resultSet.getDate("begin_date");
+            Date endDate = resultSet.getDate("end_date");
+            String description = resultSet.getString("description");
+            int userId = resultSet.getInt("user_id");
+            User user = new User();
+            user.setId(userId);
+            experience = new Experience(id, header, beginDate, endDate, description, user);
+        }
+        return experience;
+    }
 
+    @Override
+    public boolean update(Experience experience) throws SQLException {
+        if (experienceById(experience.getId()) == null) return false;
+        Experience dbExperience = experienceById(experience.getId());
+        String header = (experience.getHeader() != null ? experience.getHeader() : dbExperience.getHeader());
+        Date beginDate = (experience.getBeginDate() != null ? experience.getBeginDate() : dbExperience.getBeginDate());
+        Date endDate = (experience.getEndDate() != null ? experience.getEndDate() : dbExperience.getEndDate());
+        String description = (experience.getDescription() != null ? experience.getDescription() : dbExperience.getDescription());
+        PreparedStatement preparedStatement = connection.prepareStatement("UPDATE employment_history SET `header` = ?, `begin_date` = ?, `end_date` = ?, `description` = ? WHERE (`id` = ?)");
+        preparedStatement.setString(1, header);
+        preparedStatement.setDate(2, beginDate);
+        preparedStatement.setDate(3, endDate);
+        preparedStatement.setString(4, description);
+        preparedStatement.setInt(5, experience.getId());
+        preparedStatement.execute();
+        return true;
+    }
+
+    @Override
+    public boolean delete(int id) throws SQLException {
+        if (experienceById(id) == null) return false;
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from employment_history where  id = ?");
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+        return true;
     }
 
     @Override

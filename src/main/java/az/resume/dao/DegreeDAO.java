@@ -1,7 +1,6 @@
 package az.resume.dao;
 
 import az.resume.bean.Degree;
-import az.resume.dao.model.Callable;
 
 import java.sql.SQLException;
 import java.util.List;

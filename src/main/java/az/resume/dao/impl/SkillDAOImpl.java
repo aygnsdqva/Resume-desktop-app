@@ -1,6 +1,5 @@
 package az.resume.dao.impl;
 
-import az.resume.bean.Language;
 import az.resume.bean.Skill;
 import az.resume.bean.User;
 import az.resume.bean.UserSkill;
@@ -16,6 +15,49 @@ public class SkillDAOImpl extends SkillDAO {
 
     public SkillDAOImpl(Connection connection) {
         this.connection = connection;
+    }
+
+    @Override
+    public void add(Skill skill) throws SQLException {
+        PreparedStatement preparedStatement = connection.prepareStatement("insert into skill(name) value (?)");
+        preparedStatement.setString(1, skill.getName());
+        preparedStatement.executeUpdate();
+        System.out.println("Well done");
+    }
+
+    @Override
+    public Skill skillById(int id) throws SQLException {
+        Skill skill = null;
+        PreparedStatement preparedStatement = connection.prepareStatement("select * from skill where id = ?");
+        preparedStatement.setInt(1, id);
+        preparedStatement.execute();
+        ResultSet resultSet = preparedStatement.getResultSet();
+        while (resultSet.next()) {
+            String name = resultSet.getString("name");
+            skill = new Skill(id, name);
+        }
+        return skill;
+    }
+
+    @Override
+    public boolean update(Skill skill) throws SQLException {
+        if (skillById(skill.getId()) == null) return false;
+        Skill skillByDb = skillById(skill.getId());
+        String name = (skill.getName() != null ? skill.getName() : skillByDb.getName());
+        PreparedStatement preparedStatement = connection.prepareStatement("update skill set name = ? where id = ?");
+        preparedStatement.setString(1, name);
+        preparedStatement.setInt(2, skill.getId());
+        preparedStatement.executeUpdate();
+        return true;
+    }
+
+    @Override
+    public boolean delete(int id) throws SQLException {
+        if (skillById(id) == null) return false;
+        PreparedStatement preparedStatement = connection.prepareStatement("delete from skill where id = ?");
+        preparedStatement.setInt(1, id);
+        preparedStatement.executeUpdate();
+        return true;
     }
 
     @Override
@@ -51,18 +93,4 @@ public class SkillDAOImpl extends SkillDAO {
         return userSkills;
     }
 
-    @Override
-    public void add(Object object) throws SQLException {
-
-    }
-
-    @Override
-    public void delete(int id) {
-
-    }
-
-    @Override
-    public void update(int id) {
-
-    }
 }

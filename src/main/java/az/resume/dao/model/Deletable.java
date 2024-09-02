@@ -1,5 +1,7 @@
 package az.resume.dao.model;
 
+import java.sql.SQLException;
+
 public interface Deletable {
-    void delete(int id);
+    boolean delete(int id) throws SQLException;
 }

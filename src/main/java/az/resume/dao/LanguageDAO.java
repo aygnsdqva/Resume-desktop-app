@@ -2,7 +2,6 @@ package az.resume.dao;
 
 import az.resume.bean.Language;
 import az.resume.bean.UserLanguage;
-import az.resume.dao.model.Callable;
 
 import java.sql.SQLException;
 import java.util.List;
